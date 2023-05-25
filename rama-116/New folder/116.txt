@@ -1,0 +1,20 @@
+Chess Promotion Problem.
+
+source code:
+def promote_pawn(pawn_position, new_piece):
+    """Promote a pawn at the given position to a new piece"""
+    promoted_positions = []
+    rank, file = pawn_position  # Split the position into rank and file
+    for i in range(1, 9):  # Loop through each possible file
+        if i != file:  # Don't consider the current file
+            promoted_positions.append((rank, i))  # Add the new position
+    promoted_positions.append((rank + 1, file))  # Add the position of the promoted pawn
+    return promoted_positions, new_piece
+
+# Example usage
+pawn_position = (2, 1)  # A pawn on rank 2, file 1
+new_piece = 'Q'  # Promote the pawn to a queen
+promoted_positions, promoted_piece = promote_pawn(pawn_position, new_piece)
+print(f"The pawn at {pawn_position} is promoted to {promoted_piece} and can move to the following positions:")
+for pos in promoted_positions:
+    print(pos)

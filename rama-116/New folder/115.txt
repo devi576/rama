@@ -1,0 +1,26 @@
+ You are given a string.Your task is to count the frequency of letters of the 
+string and print the letters in descending order of frequency.
+If the following string is given as input to the program:
+aabbbccde
+Then, the output of the program should be:
+b 3
+a 2
+c 2
+
+source code:
+from collections import defaultdict
+
+# Get input string from user
+s = input()
+
+# Create dictionary to count frequency of characters
+freq_dict = defaultdict(int)
+for c in s:
+    freq_dict[c] += 1
+
+# Sort dictionary in descending order based on values
+sorted_dict = dict(sorted(freq_dict.items(), key=lambda item: item[1], reverse=True))
+
+# Print characters and their frequencies in descending order
+for k, v in sorted_dict.items():
+    print(k, v)

@@ -1,0 +1,18 @@
+44. Write a program which can map() and filter() to make a list whose elements 
+are square of even number in [1,2,3,4,5,6,7,8,9,10].
+source code:
+nums = [1,2,3,4,5,6,7,8,9,10]
+
+# using filter() to filter even numbers from the list
+filtered_nums = filter(lambda x: x%2==0, nums)
+
+# using map() to square the elements of the filtered list
+squared_nums = map(lambda x: x*x, filtered_nums)
+
+# convert the output into a list
+result = list(squared_nums)
+
+print(result)
+
+output:
+[4, 16, 36, 64, 100]

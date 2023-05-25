@@ -1,0 +1,29 @@
+24. Python has many built-in functions, and if you do not know how to use it, 
+you can read document online or find some books. But Python has a built-in 
+document function for every built-in functions.
+Please write a program to print some Python built-in functions documents, 
+such as abs(), int(), raw_input()
+And add document for your own function.
+source code:
+# print the documentation for abs()
+print(help(abs))
+
+# print the documentation for int()
+print(help(int))
+
+# print the documentation for input() (in Python 3.x)
+print(help(input))
+
+# print the documentation for raw_input() (in Python 2.x)
+print(help(raw_input))
+
+# define a custom function
+def my_function():
+    """
+    This is the documentation for my_function.
+    It does nothing but print a message.
+    """
+    print("Hello from my_function!")
+
+# print the documentation for my_function
+print(help(my_function))

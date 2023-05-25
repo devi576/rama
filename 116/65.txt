@@ -1,0 +1,12 @@
+65. Write a program to read an ASCII string and to convert it to a unicode string 
+encoded by utf-8.
+
+source code:
+# Read the ASCII string from user input
+ascii_str = input("Enter an ASCII string: ")
+
+# Convert the ASCII string to a Unicode string encoded by UTF-8
+unicode_str = ascii_str.encode('utf-8')
+
+# Print the Unicode string
+print(unicode_str)

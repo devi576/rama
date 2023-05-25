@@ -1,0 +1,26 @@
+You are given a string S and width W. Your task is to wrap the string into a 
+paragraph of width.
+If the following string is given as input to the program:
+ABCDEFGHIJKLIMNOQRSTUVWXYZ
+4
+Then, the output of the program should be:
+ABCD
+EFGH
+IJKL
+IMNO
+QRST
+UVWX
+YZ
+
+source code:
+def wrap_text(text, width):
+    # Split the text into chunks of the given width
+    chunks = [text[i:i+width] for i in range(0, len(text), width)]
+    # Join the chunks with line breaks and return the result
+    return '\n'.join(chunks)
+
+# Example usage
+text = 'ABCDEFGHIJKLIMNOQRSTUVWXYZ'
+width = 4
+wrapped_text = wrap_text(text, width)
+print(wrapped_text)

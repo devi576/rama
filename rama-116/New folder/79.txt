@@ -1,0 +1,14 @@
+ Please write a program to output a random even number between 0 and 10 
+inclusive using random module and list comprehension.
+
+source code:
+import random
+
+# Generate a list of even numbers between 0 and 10 (inclusive)
+even_nums = [num for num in range(0, 11, 2)]
+
+# Choose a random even number from the list
+random_even = random.choice(even_nums)
+
+# Print the random even number
+print(random_even)

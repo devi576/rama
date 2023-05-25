@@ -1,0 +1,3 @@
+56. Please raise a RuntimeError exception.
+source code:
+raise RuntimeError("This is a runtime error")

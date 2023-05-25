@@ -1,0 +1,9 @@
+26. Define a function that can convert a integer into a string and print it in 
+console.
+source code:
+def int_to_str(num):
+    str_num = str(num)
+    print(str_num)
+
+output:
+int_to_str(1234)  # output: "1234"

@@ -1,0 +1,12 @@
+45. Write a program which can filter() to make a list whose elements are even 
+number between 1 and 20 (both included).
+source code:
+def get_even_numbers():
+    numbers = list(range(1, 21))
+    even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+    return even_numbers
+
+print(get_even_numbers())
+
+output:
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]

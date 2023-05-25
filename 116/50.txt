@@ -1,0 +1,34 @@
+50. Define a class named American and its subclass NewYorker.
+source code:
+class American:
+    def __init__(self, name):
+        self.name = name
+
+    def printNationality(self):
+        print("I am an American.")
+
+
+class NewYorker(American):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def printNewYorker(self):
+        print("I am a New Yorker.")
+
+
+john = American("John")
+jane = NewYorker("Jane")
+
+print(john.name)
+john.printNationality()
+
+print(jane.name)
+jane.printNationality()
+jane.printNewYorker()
+
+output:
+John
+I am an American.
+Jane
+I am an American.
+I am a New Yorker.

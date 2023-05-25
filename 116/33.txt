@@ -1,0 +1,13 @@
+33. Define a function which can generate a dictionary where the keys are 
+numbers between 1 and 20 (both included) and the values are square of 
+keys. The function should just print the keys only.
+source code:
+def print_dict_keys():
+    # Generate the dictionary with keys as numbers between 1 and 20 and values as squares of keys
+    my_dict = {x: x**2 for x in range(1, 21)}
+
+    # Print the keys of the dictionary
+    print(my_dict.keys())
+
+output:
+print_dict_keys() # Output: dict_keys([1, 2, 3, ..., 20])

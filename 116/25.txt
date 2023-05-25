@@ -1,0 +1,8 @@
+25. Define a class, which have a class parameter and have a same instance 
+parameter.
+source code:
+class MyClass:
+    class_param = "I am a class parameter"
+    
+    def __init__(self, instance_param):
+        self.instance_param = instance_param

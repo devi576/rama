@@ -1,0 +1,24 @@
+61. The coin change Problem.
+source code:
+def coin_change(coins, amount):
+    # Create a list to store the minimum number of coins needed for each amount
+    dp = [float('inf')] * (amount + 1)
+    # Set the minimum number of coins needed for an amount of 0 to be 0
+    dp[0] = 0
+    # Iterate over all possible amounts from 1 to the target amount
+    for i in range(1, amount + 1):
+        # Try using each coin to make change for the current amount
+        for coin in coins:
+            # If the current coin is less than or equal to the current amount
+            if coin <= i:
+                # Calculate the minimum number of coins needed for the current amount
+                # as the minimum of the current value and the value obtained by using
+                # the current coin and subtracting its value from the current amount
+                dp[i] = min(dp[i], dp[i-coin] + 1)
+    # Return the minimum number of coins needed for the target amount
+    return dp[amount] if dp[amount] != float('inf') else -1
+
+output:
+coins = [1, 5, 10, 25]
+amount = 63
+print(coin_change(coins, amount))  # Output: 6

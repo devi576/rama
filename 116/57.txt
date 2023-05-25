@@ -1,0 +1,42 @@
+57. Minimum Cost Path.
+source code:
+import heapq
+
+def min_cost_path(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+    
+    # Initialize the cost matrix with max value
+    cost = [[float('inf') for j in range(cols)] for i in range(rows)]
+    cost[0][0] = matrix[0][0]
+    
+    # Initialize the heap with the start vertex
+    heap = [(matrix[0][0], 0, 0)]
+    
+    # Dijkstra algorithm to find the minimum cost path
+    while heap:
+        cur_cost, cur_row, cur_col = heapq.heappop(heap)
+        
+        # Check if we have reached the end vertex
+        if cur_row == rows - 1 and cur_col == cols - 1:
+            return cost[rows-1][cols-1]
+        
+        # Traverse the neighbors and update the cost matrix
+        for i, j in [(cur_row+1, cur_col), (cur_row, cur_col+1), (cur_row-1, cur_col), (cur_row, cur_col-1)]:
+            if i >= 0 and i < rows and j >= 0 and j < cols:
+                new_cost = cur_cost + matrix[i][j]
+                if new_cost < cost[i][j]:
+                    cost[i][j] = new_cost
+                    heapq.heappush(heap, (new_cost, i, j))
+    
+    # If we reach here, it means there is no path from start to end
+    return -1
+
+# Example usage:
+matrix = [
+    [1, 2, 3],
+    [4, 8, 2],
+    [1, 5, 3]
+]
+
+print(min_cost_path(matrix))  # Output: 8

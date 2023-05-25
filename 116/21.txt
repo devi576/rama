@@ -1,0 +1,35 @@
+21. A robot moves in a plane starting from the original point (0,0). The robot 
+can move toward UP, DOWN, LEFT and RIGHT with a given steps. The trace 
+of robot movement is shown as the following:
+ UP 5
+DOWN 3
+LEFT 3
+RIGHT 2
+
+source code:
+class Robot:
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+    
+    def move(self, direction, steps):
+        if direction == "UP":
+            self.y += steps
+        elif direction == "DOWN":
+            self.y -= steps
+        elif direction == "LEFT":
+            self.x -= steps
+        elif direction == "RIGHT":
+            self.x += steps
+
+# create a new robot
+robot = Robot()
+
+# move the robot according to the given trace
+robot.move("UP", 5)
+robot.move("DOWN", 3)
+robot.move("LEFT", 3)
+robot.move("RIGHT", 2)
+
+# print the final position of the robot
+print(f"The final position of the robot is ({robot.x}, {robot.y})")

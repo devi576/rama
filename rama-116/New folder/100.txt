@@ -1,0 +1,15 @@
+ With a given list [12,24,35,24,88,120,155,88,120,155], write a program 
+to print this list after removing all duplicate values with original order 
+reserved.
+
+source code:
+original_list = [12,24,35,24,88,120,155,88,120,155]
+
+# create a new list to hold the unique values in original order
+new_list = []
+
+# iterate over the original list and append each element to new_list only if it's not already there
+[new_list.append(i) for i in original_list if i not in new_list]
+
+# print the new list with duplicates removed
+print(new_list)

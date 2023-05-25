@@ -1,0 +1,3 @@
+64. Print a unicode string "hello world".
+ source code:
+print(u"hello world")

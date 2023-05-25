@@ -1,0 +1,12 @@
+49. Define a class named American which has a static method called 
+printNationality.
+source code:
+class American:
+    @staticmethod
+    def printNationality():
+        print("I am an American.")
+American.printNationality()
+
+
+output:
+I am an American.

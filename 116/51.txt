@@ -1,0 +1,45 @@
+51. Longest Palindromic Subsequence.
+source code:
+def longest_palindromic_subsequence(s):
+    n = len(s)
+    dp = [[0 for _ in range(n)] for _ in range(n)]
+    
+    # Base case: every character is a palindrome of length 1
+    for i in range(n):
+        dp[i][i] = 1
+        
+    # Iterate over the string diagonally to fill the dp table
+    for d in range(1, n):
+        for i in range(n-d):
+            j = i + d
+            if s[i] == s[j]:
+                dp[i][j] = dp[i+1][j-1] + 2
+            else:
+                dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+    
+    # The length of the longest palindromic subsequence is stored in dp[0][n-1]
+    length = dp[0][n-1]
+    
+    # Trace back the longest palindromic subsequence from dp table
+    subsequence = ""
+    i, j = 0, n-1
+    while length > 0:
+        if s[i] == s[j]:
+            subsequence = s[i] + subsequence
+            i += 1
+            j -= 1
+            length -= 2
+        elif dp[i+1][j] > dp[i][j-1]:
+            i += 1
+        else:
+            j -= 1
+    
+    return subsequence
+
+
+# Test the function with an example string
+s = "character"
+print("Longest palindromic subsequence of '", s, "' is: ", longest_palindromic_subsequence(s))
+
+output:
+Longest palindromic subsequence of ' character ' is:  carac

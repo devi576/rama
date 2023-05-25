@@ -1,0 +1,29 @@
+46. Longest Increasing Subsequence.
+source code:
+def lis(arr):
+    n = len(arr)
+    # Initialize an array to store the lengths of the LIS ending at each index
+    lis_lengths = [1] * n
+
+    # Compute the LIS lengths for each index in the array
+    for i in range(1, n):
+        for j in range(0, i):
+            if arr[i] > arr[j]:
+                lis_lengths[i] = max(lis_lengths[i], lis_lengths[j] + 1)
+
+    # Find the maximum LIS length in the array
+    max_length = max(lis_lengths)
+
+    # Build the LIS from the LIS lengths array
+    lis = []
+    for i in range(n - 1, -1, -1):
+        if lis_lengths[i] == max_length:
+            lis.append(arr[i])
+            max_length -= 1
+            if max_length == 0:
+                break
+
+    # Reverse the LIS to get the correct order
+    lis.reverse()
+
+    return lis

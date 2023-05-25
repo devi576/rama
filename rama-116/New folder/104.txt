@@ -1,0 +1,17 @@
+Please write a program which accepts a string from console and print it in 
+reverse order.
+ Example: If the following string is given as input to the program:*
+rise to vote sir
+Then, the output of the program should be:
+ris etov ot esir
+
+source code:
+
+# Accept input string from user
+input_str = input("Enter a string: ")
+
+# Reverse the string using slicing
+reversed_str = input_str[::-1]
+
+# Print the reversed string
+print("Reversed string:", reversed_str)

@@ -1,0 +1,18 @@
+54. Define a class named Rectangle which can be constructed by a length and 
+width. The Rectangle class has a method which can compute the area.
+source code:
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+        
+    def area(self):
+        return self.length * self.width
+# Create a rectangle with length 5 and width 3
+r = Rectangle(5, 3)
+
+# Compute and print the area of the rectangle
+print("Area of rectangle:", r.area())
+
+output:
+Area of rectangle: 15

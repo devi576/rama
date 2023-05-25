@@ -1,0 +1,7 @@
+28. Define a function which can compute the sum of two numbers.
+source code:
+def compute_sum(num1, num2):
+    return num1 + num2
+output:
+result = compute_sum(5, 7)
+print(result)  # output: 12

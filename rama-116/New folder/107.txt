@@ -1,0 +1,27 @@
+Write a program to solve a classic ancient Chinese puzzle: We count 35 
+heads and 94 legs among the chickens and rabbits in a farm. How many 
+rabbits and how many chickens do we have?
+
+source code:
+
+c + r = 35
+4r + 2c = 94
+def solve_puzzle(heads, legs):
+    # Calculate the number of rabbits using the head count
+    rabbits = (legs - 2 * heads) / 2
+    # Calculate the number of chickens using the rabbit and head counts
+    chickens = heads - rabbits
+    # Check if the solution is valid (i.e. positive integer values)
+    if rabbits >= 0 and chickens >= 0 and rabbits == int(rabbits) and chickens == int(chickens):
+        return int(chickens), int(rabbits)
+    else:
+        return None
+
+# Test the function with the given input
+chickens, rabbits = solve_puzzle(35, 94)
+if chickens and rabbits:
+    print(f"The number of chickens is {chickens} and the number of rabbits is {rabbits}")
+else:
+    print("No valid solution exists.")
+output:
+The number of chickens is 23 and the number of rabbits is 12
