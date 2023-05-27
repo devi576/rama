@@ -1,0 +1,21 @@
+ Please write a program to compress and decompress the string "hello 
+world!hello world!hello world!hello world!".
+
+source code:
+
+import zlib
+
+# Define the string to compress
+string_to_compress = "hello world!hello world!hello world!hello world!"
+
+# Compress the string using zlib
+compressed_string = zlib.compress(string_to_compress.encode())
+
+# Print the compressed string
+print("Compressed string:", compressed_string)
+
+# Decompress the string using zlib
+decompressed_string = zlib.decompress(compressed_string)
+
+# Print the decompressed string
+print("Decompressed string:", decompressed_string.decode())

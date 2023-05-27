@@ -1,0 +1,12 @@
+Please write a program to randomly print a integer number between 7 and 
+15 inclusive.
+
+source code:
+
+import random
+
+# Generate a random integer between 7 and 15 (inclusive)
+random_int = random.randint(7, 15)
+
+# Print the random integer
+print(random_int)

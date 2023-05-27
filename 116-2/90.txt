@@ -1,0 +1,33 @@
+Largest Area Histogram Problem.
+
+source code:
+
+def largest_area_histogram(arr):
+    stack = []
+    max_area = 0
+    i = 0
+    while i < len(arr):
+        if (not stack) or (arr[i] >= arr[stack[-1]]):
+            stack.append(i)
+            i += 1
+        else:
+            top = stack.pop()
+            if not stack:
+                area = arr[top] * i
+            else:
+                area = arr[top] * (i - stack[-1] - 1)
+            max_area = max(max_area, area)
+    while stack:
+        top = stack.pop()
+        if not stack:
+            area = arr[top] * i
+        else:
+            area = arr[top] * (i - stack[-1] - 1)
+        max_area = max(max_area, area)
+    return max_area
+
+
+arr = [6, 2, 5, 4, 5, 1, 6]
+print(largest_area_histogram(arr))
+
+

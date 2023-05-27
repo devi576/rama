@@ -1,0 +1,56 @@
+Knight’s Tour Problem
+
+source code:
+# Function to find the possible moves of knight
+def possible_moves(x, y, n, visited):
+    # Possible moves of a knight
+    moves = [
+        (-2, -1), (-2, 1), (2, -1), (2, 1),
+        (-1, -2), (-1, 2), (1, -2), (1, 2)
+    ]
+    valid_moves = []
+    for move in moves:
+        new_x = x + move[0]
+        new_y = y + move[1]
+        if (new_x >= 0 and new_x < n and new_y >= 0 and new_y < n
+                and (new_x, new_y) not in visited):
+            valid_moves.append((new_x, new_y))
+    # Sort the valid moves based on the degree of each next move
+    sorted_moves = sorted(valid_moves, key=lambda x: len(possible_moves(x[0], x[1], n, visited)))
+    return sorted_moves
+
+# Function to solve the Knight's Tour Problem
+def knights_tour(n):
+    # Initialize the chessboard
+    board = [[-1 for j in range(n)] for i in range(n)]
+    # Start at position (0, 0)
+    x = y = 0
+    # Mark the starting position as visited
+    visited = [(x, y)]
+    # Assign the starting position on the board as 0
+    board[x][y] = 0
+    # Keep track of the current move
+    move = 1
+    while move < n**2:
+        # Find the possible moves from the current position
+        moves = possible_moves(x, y, n, visited)
+        if not moves:
+            # If there are no more moves, backtrack
+            return None
+        # Make the next move
+        x, y = moves[0]
+        # Mark the next move as visited
+        visited.append((x, y))
+        # Assign the next move on the board
+        board[x][y] = move
+        # Increment the move count
+        move += 1
+    return board
+
+# Test the function with n = 8
+board = knights_tour(8)
+if board:
+    for row in board:
+        print(row)
+else:
+    print("No solution found")
